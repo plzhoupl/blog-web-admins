@@ -37,13 +37,14 @@
         pwd: '',
       }
     }, methods: {
-      login(){
+      login () {
         this.$ajax({
-          method: 'put',
+          method: 'PUT',
           url: 'http://zhoupeili.cn:8080/api/login',
+          responseType: 'json',
           data: {
-            username: this.name,
-            password: this.pwd,
+            'username': this.name,
+            'pwd': this.pwd,
           }
         }).then((response) => {
           console.log(response)
