@@ -5,6 +5,10 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 
+import MuseUI from 'muse-ui'
+import 'muse-ui/dist/muse-ui.css'
+Vue.use(MuseUI)
+
 Vue.config.productionTip = false
 Vue.prototype.$ajax = axios
 /* eslint-disable no-new */
