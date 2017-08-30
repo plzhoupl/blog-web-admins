@@ -1,15 +1,17 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="css">
-  #login{
+  #login {
     background-image: linear-gradient(to bottom, #BEF5FF 0%, #19E7FF 100%);
     width: 100%;
     height: 100%;
-    padding: 5%;
+    padding: 10% 20% 10% 20%;
   }
-  .demo-grid{
+
+  .demo-grid {
     background-color: #F3FDFF;
     border-radius: 5px;
   }
+
   .demo-grid div[class*="col-"] {
     text-align: center;
     color: #000;
@@ -17,98 +19,100 @@
     margin-bottom: 8px;
   }
 
-  .top,.mu-card-text{
+  .top, .mu-card-text {
     height: 46px;
     color: #115985;
     font-size: 16px;
     font-weight: bold;
   }
+
   .mu-card-text {
     text-align: left;
     margin-left: 8%;
   }
-  .assign{
+
+  .assign {
     width: 50%;
     display: block;
   }
-  .mu-text-field{
+
+  .mu-text-field {
     width: 50%;
   }
-  .mu-raised-button.mu-raised-button-inverse{
+
+  .mu-raised-button.mu-raised-button-inverse {
     margin-top: 20px;
   }
-  .mu-card-media{width: 70%}
-  .demo-grid{
+
+  .mu-card-media {
+    width: 70%
+  }
+
+  .demo-grid {
     padding-bottom: 5%;
   }
 </style>
 
 <template>
   <div id="login">
-    <div class="demo-grid">
+    <mu-paper  class="demo-grid demo-paper" :zDepth="5">
       <mu-row gutter>
         <mu-col width="100" tablet="100" desktop="100">
           <h3 class="top">欢迎来到我的博客！</h3>
           <mu-divider></mu-divider>
         </mu-col>
       </mu-row>
+
+
       <div>
         <mu-row gutter>
-          <mu-col width="100" tablet="50" desktop="50">
-            <mu-tabs :value="activeTab" @change="handleTabChange">
-              <mu-tab value="tab1" title="登录"/>
-              <mu-tab value="tab2" title="注册"/>
-            </mu-tabs>
-          </mu-col>
-          <mu-col width="100" tablet="50" desktop="50">
+          <mu-col style="text-align: center" width="100" tablet="50" desktop="50">
+            <mu-paper >
+              <mu-bottom-nav :value="activeTab" shift @change="handleChange">
+                <mu-bottom-nav-item value="tab1" title="登录" icon="login"/>
+                <mu-bottom-nav-item value="tab2" title="注册" icon="music_note"/>
+              </mu-bottom-nav>
+            </mu-paper>
+            <!--<mu-paper style="max-width: 376px; background: blue ">-->
+            <!--<mu-bottom-nav :value="activeTab" @change="handleTabChange">-->
 
+            <!--</mu-bottom-nav>-->
+            <!--</mu-paper>-->
+          </mu-col>
+
+          <mu-col width="100" tablet="50" desktop="50">
           </mu-col>
         </mu-row>
 
         <div v-if="activeTab === 'tab1'">
           <mu-row gutter>
             <mu-col width="100" tablet="50" desktop="50">
-              <mu-text-field v-model="name" hintText="邮箱/用户名" label="邮箱/用户名"/>
-              <br>
-              <mu-text-field v-model="pwd" label="登录密码" hintText="请输入密码" type="password"/>
-              <br>
-              <mu-raised-button @click="Login" label="登录" class="demo-raised-button" backgroundColor="#76CBE7" />
+              <mu-auto-complete v-model="name"  label="邮箱/用户名" :maxSearchResults="5" labelFloat :dataSource="colors" filter="noFilter"/><br/>
+              <mu-auto-complete v-model="pwd"  label="登录密码" :maxSearchResults="5" labelFloat :dataSource="colors" filter="noFilter"/><br/>
+              <mu-raised-button @click="Login" label="登录" class="demo-raised-button" backgroundColor="#76CBE7"/>
             </mu-col>
             <mu-col width="100" tablet="50" desktop="50">
-                <mu-card-media>
-                  <img src="../assets/assign.png" />
-                </mu-card-media>
-                <mu-card-text>
-                  Find freelance projects and grow your business.
-                </mu-card-text>
+                <img src="../assets/assign.png" width="100%"/>
             </mu-col>
           </mu-row>
         </div>
         <div v-if="activeTab === 'tab2'">
           <mu-row gutter>
             <mu-col width="100" tablet="50" desktop="50">
-              <mu-text-field hintText="设置用户名" label="设置用户名"/>
-              <br>
-              <mu-text-field hintText="设置邮箱" label="设置邮箱"/>
-              <br>
-              <mu-text-field label="设置密码" hintText="设置您的密码" type="password"/>
-              <br>
-              <mu-text-field label="确认密码" hintText="请再次输入您的密码" type="password"/>
-              <br>
-              <mu-raised-button label="注册" class="demo-raised-button" backgroundColor="#76CBE7" />
+              <mu-auto-complete  label="设置用户名" :maxSearchResults="5" labelFloat :dataSource="colors" filter="noFilter"/><br/>
+              <mu-auto-complete  label="设置邮箱" :maxSearchResults="5" labelFloat :dataSource="colors" filter="noFilter"/><br/>
+              <mu-auto-complete  label="设置密码" :maxSearchResults="5" labelFloat :dataSource="colors" filter="noFilter"/><br/>
+              <mu-auto-complete  label="确认密码" :maxSearchResults="5" labelFloat :dataSource="colors" filter="noFilter"/><br/>
+              <mu-raised-button label="注册" class="demo-raised-button" backgroundColor="#76CBE7"/>
             </mu-col>
             <mu-col width="100" tablet="50" desktop="50">
-              <mu-card-media>
-                <img src="../assets/assign.png" />
-              </mu-card-media>
-              <mu-card-text>
-                Find freelance projects and grow your business.
-              </mu-card-text>
+
+            <img src="../assets/assign.png" width="100%"/>
             </mu-col>
           </mu-row>
         </div>
       </div>
-    </div>
+    </mu-paper>
   </div>
 </template>
 
@@ -124,7 +128,7 @@
         activeTab: 'tab1'
       }
     }, methods: {
-      handleTabChange (val) {
+      handleChange (val) {
         this.activeTab = val
       },
       login () {
