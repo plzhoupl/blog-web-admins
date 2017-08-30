@@ -69,8 +69,8 @@
           <mu-col style="text-align: center" width="100" tablet="50" desktop="50">
             <mu-paper >
               <mu-bottom-nav :value="activeTab" shift @change="handleChange">
-                <mu-bottom-nav-item value="tab1" title="登录" icon="login"/>
-                <mu-bottom-nav-item value="tab2" title="注册" icon="music_note"/>
+                <mu-bottom-nav-item value="tab1" title="登录" icon="account_circle"/>
+                <mu-bottom-nav-item value="tab2" title="注册" icon="note_add"/>
               </mu-bottom-nav>
             </mu-paper>
             <!--<mu-paper style="max-width: 376px; background: blue ">-->
