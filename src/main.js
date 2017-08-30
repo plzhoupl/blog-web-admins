@@ -7,7 +7,9 @@ import axios from 'axios'
 
 import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'
+
 Vue.use(MuseUI)
+require('./main.css')
 
 Vue.config.productionTip = false
 Vue.prototype.$ajax = axios
@@ -17,4 +19,5 @@ new Vue({
   router,
   template: '<App/>',
   components: { App }
+
 })

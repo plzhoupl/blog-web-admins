@@ -1,10 +1,6 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="css">
-  html,body{
-    margin:0;
-    height: 100%;
-  }
-  #app{
+  #login{
     background-image: linear-gradient(to bottom, #BEF5FF 0%, #19E7FF 100%);
     width: 100%;
     height: 100%;
@@ -48,7 +44,7 @@
 </style>
 
 <template>
-  <div id="app">
+  <div id="login">
     <div class="demo-grid">
       <mu-row gutter>
         <mu-col width="100" tablet="100" desktop="100">
@@ -76,7 +72,7 @@
               <br>
               <mu-text-field v-model="pwd" label="登录密码" hintText="请输入密码" type="password"/>
               <br>
-              <mu-raised-button @click="login" label="登录" class="demo-raised-button" backgroundColor="#76CBE7" />
+              <mu-raised-button @click="Login" label="登录" class="demo-raised-button" backgroundColor="#76CBE7" />
             </mu-col>
             <mu-col width="100" tablet="50" desktop="50">
                 <mu-card-media>
@@ -119,7 +115,7 @@
 
 <script>
   export default {
-    name: 'App',
+    name: 'Login',
     data () {
       return {
         msg: 'Welcome to Your Vue.js App',
