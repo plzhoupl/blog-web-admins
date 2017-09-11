@@ -55,7 +55,7 @@
 
 <template>
   <div id="login">
-    <mu-paper  class="demo-grid demo-paper" :zDepth="5">
+    <mu-paper class="demo-grid demo-paper" :zDepth="5">
       <mu-row gutter>
         <mu-col width="100" tablet="100" desktop="100">
           <h3 class="top">欢迎来到我的博客！</h3>
@@ -84,22 +84,30 @@
           </mu-col>
         </mu-row>
 
-        <div >
+        <div>
           <mu-row gutter>
             <mu-col width="100" tablet="50" desktop="50" v-if="activeTab === 'tab1'">
-              <mu-auto-complete v-model="name"  label="邮箱/用户名" :maxSearchResults="5" labelFloat :dataSource="colors" filter="noFilter"/><br/>
-              <mu-auto-complete v-model="pwd"  label="登录密码" :maxSearchResults="5" labelFloat :dataSource="colors" filter="noFilter"/><br/>
+              <mu-auto-complete v-model="name" label="邮箱/用户名" :maxSearchResults="5" labelFloat :dataSource="colors"
+                                filter="noFilter"/>
+              <br/>
+              <mu-auto-complete v-model="pwd" label="登录密码" :maxSearchResults="5" labelFloat :dataSource="colors"
+                                filter="noFilter"/>
+              <br/>
               <mu-raised-button @click="Login" label="登录" class="shadow demo-raised-button" backgroundColor="#2196F3"/>
             </mu-col>
-            <mu-col  v-if="activeTab === 'tab2'" width="100" tablet="50" desktop="50">
-              <mu-auto-complete  label="设置用户名" :maxSearchResults="5" labelFloat :dataSource="colors" filter="noFilter"/><br/>
-              <mu-auto-complete  label="设置邮箱" :maxSearchResults="5" labelFloat :dataSource="colors" filter="noFilter"/><br/>
-              <mu-auto-complete  label="设置密码" :maxSearchResults="5" labelFloat :dataSource="colors" filter="noFilter"/><br/>
-              <mu-auto-complete  label="确认密码" :maxSearchResults="5" labelFloat :dataSource="colors" filter="noFilter"/><br/>
+            <mu-col v-if="activeTab === 'tab2'" width="100" tablet="50" desktop="50">
+              <mu-auto-complete label="设置用户名" :maxSearchResults="5" labelFloat :dataSource="colors" filter="noFilter"/>
+              <br/>
+              <mu-auto-complete label="设置邮箱" :maxSearchResults="5" labelFloat :dataSource="colors" filter="noFilter"/>
+              <br/>
+              <mu-auto-complete label="设置密码" :maxSearchResults="5" labelFloat :dataSource="colors" filter="noFilter"/>
+              <br/>
+              <mu-auto-complete label="确认密码" :maxSearchResults="5" labelFloat :dataSource="colors" filter="noFilter"/>
+              <br/>
               <mu-raised-button label="注册" class="demo-raised-button shadow" backgroundColor="#2196F3"/>
             </mu-col>
             <mu-col width="100" tablet="50" desktop="50">
-                <img src="../assets/assign.png" width="100%"/>
+              <img src="../assets/assign.png" width="100%"/>
             </mu-col>
           </mu-row>
         </div>
@@ -119,7 +127,8 @@
         pwd: '',
         activeTab: 'tab1'
       }
-    }, methods: {
+    },
+    methods: {
       handleChange (val) {
         this.activeTab = val
       },
@@ -130,7 +139,7 @@
           responseType: 'json',
           data: {
             'username': this.name,
-            'pwd': this.pwd,
+            'pwd': this.pwd
           }
         }).then((response) => {
           console.log(response)
