@@ -5,8 +5,22 @@
 </template>
 
 <script>
-export default {
-  name: 'app'
+  import user from './api/User';
+
+  export default {
+  name: 'app',
+  methods: {
+    login() {
+      user.checkLogin();
+    },
+  },
+  mounted () {
+   this.login();
+  },
+  watch: {
+    // 如果路由有变化，会再次执行该方法
+    "$route": "login"
+  }
 }
 </script>
 

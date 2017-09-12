@@ -7,14 +7,4 @@
   </div>
 </template>
 <script>
-
-  import client from '../api/client'
-
-  export default {
-
-    mounted () {
-      demo.toLogin();
-
-    }
-  }
 </script>

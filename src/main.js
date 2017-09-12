@@ -17,7 +17,7 @@ Vue.prototype.$ajax = axios
 
 import User from './api/User';
 
-window.User = User;
+window.user = User;
 window.router = router;
 /* eslint-disable no-new */
 new Vue({

@@ -22,9 +22,9 @@ export default class Demo {
   }
 
   static checkLogin () {
-    if (!this.isLogin) {
+    // if (!this.isLogin) {
       this.toLogin();
-    }
+    // }
 
   }
 
