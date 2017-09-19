@@ -4,10 +4,9 @@
 
 
 export default class Demo {
-  static isLogin () {
-    return this.loadUser() !== null && this.loadUser() !== undefined
+  static noLogin () {
+    return this.loadUser() === null
   }
-
   static saveUser (user) {
     let storage = window.localStorage
     storage.setItem('user', JSON.stringify(user))
@@ -22,10 +21,9 @@ export default class Demo {
   }
 
   static checkLogin () {
-    // if (!this.isLogin) {
-      this.toLogin();
-    // }
-
+    if (this.noLogin) {
+         this.toLogin()
+    }
   }
 
   static relogin () {

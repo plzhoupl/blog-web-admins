@@ -91,7 +91,7 @@
                                 filter="noFilter"/>
               <br/>
               <mu-auto-complete v-model="pwd" label="登录密码" :maxSearchResults="5" labelFloat :dataSource="colors"
-                                filter="noFilter"/>
+                                filter="noFilter" />
               <br/>
               <mu-raised-button @click="Login" label="登录" class="shadow demo-raised-button" backgroundColor="#2196F3"/>
             </mu-col>
