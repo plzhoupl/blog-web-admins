@@ -1,7 +1,7 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="css">
   #login {
-    background-image: linear-gradient(to bottom, #BEF5FF 0%, #19E7FF 100%);
+    background-image: linear-gradient(to right top, #0AE3A7 0%,#41C3E3  100%);
     width: 100%;
     height: 100%;
     padding: 10% 20% 10% 20%;
@@ -19,38 +19,49 @@
     margin-bottom: 8px;
   }
 
-  .top, .mu-card-text {
-    height: 46px;
-    color: #115985;
-    font-size: 16px;
-    font-weight: bold;
-  }
-
-  .mu-card-text {
-    text-align: left;
-    margin-left: 8%;
-  }
-
-  .assign {
+  .title{
     width: 50%;
-    display: block;
+    margin-left: 20px;
+    font-size: 25px;
   }
-
-  .mu-text-field {
-    width: 50%;
-  }
-
-  .mu-raised-button.mu-raised-button-inverse {
-    margin-top: 20px;
-  }
-
-  .mu-card-media {
-    width: 70%
-  }
-
   .demo-grid {
     padding-bottom: 5%;
   }
+  .input-div{
+    margin: 20px;
+    border-radius: 5px;
+    width: 50%;
+    left: 25%;
+    height: 50px;
+    text-align: center;
+    border: 1px outset #444444;
+    background: #F3FDFF;
+    position: relative;
+  }
+  .input{
+    background: #F3FDFF;
+    outline: none;
+    border: none;
+    height: 100%;
+    text-align: center;
+    width: 80%;
+  }
+  .button{
+    background-image: linear-gradient(to right top, #0AE3A7 0%,#41C3E3  100%);
+    width: 30%;
+    height: 40px;
+    left: 20px;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0px 10px 20px 2px #b5b0b6;
+    text-align: center;
+    font-size: 18px;
+  }
+  .content{
+    margin: 20px;
+    line-height: 50px;
+  }
+
 </style>
 
 <template>
@@ -63,48 +74,30 @@
         </mu-col>
       </mu-row>
 
-
       <div>
         <mu-row gutter>
-          <mu-col style="text-align: center" width="100" tablet="50" desktop="50">
-            <mu-paper :zDepth="2">
-              <mu-bottom-nav :value="activeTab" shift @change="handleChange">
-                <mu-bottom-nav-item value="tab1" title="登录" icon="account_circle"/>
-                <mu-bottom-nav-item value="tab2" title="注册" icon="note_add"/>
-              </mu-bottom-nav>
-            </mu-paper>
-            <!--<mu-paper style="max-width: 376px; background: blue ">-->
-            <!--<mu-bottom-nav :value="activeTab" @change="handleTabChange">-->
-
-            <!--</mu-bottom-nav>-->
-            <!--</mu-paper>-->
-          </mu-col>
-
-          <mu-col width="100" tablet="50" desktop="50">
-          </mu-col>
+          <span class="title"> 登录</span>
         </mu-row>
 
         <div>
           <mu-row gutter>
             <mu-col width="100" tablet="50" desktop="50" v-if="activeTab === 'tab1'">
-              <mu-auto-complete v-model="name" label="邮箱/用户名" :maxSearchResults="5" labelFloat :dataSource="colors"
-                                filter="noFilter"/>
+              <div class="input-div"> <input class="input" placeholder="Email Address"></div>
+              <div class="input-div"> <input class="input" placeholder="Password"></div>
               <br/>
-              <mu-auto-complete v-model="pwd" label="登录密码" :maxSearchResults="5" labelFloat :dataSource="colors"
-                                filter="noFilter" />
-              <br/>
-              <mu-raised-button @click="Login" label="登录" class="shadow demo-raised-button" backgroundColor="#2196F3"/>
+              <mu-raised-button  @click="Login" label="登录" class="button" /><br/>
+              <span class="content">还没账户?注册一个</span>
             </mu-col>
             <mu-col v-if="activeTab === 'tab2'" width="100" tablet="50" desktop="50">
-              <mu-auto-complete label="设置用户名" :maxSearchResults="5" labelFloat :dataSource="colors" filter="noFilter"/>
+              <mu-auto-complete inputClass="text" labelFocusClass="text" underlineFocusClass="bg" label="设置用户名" :maxSearchResults="5" labelFloat :dataSource="colors" filter="noFilter"/>
               <br/>
-              <mu-auto-complete label="设置邮箱" :maxSearchResults="5" labelFloat :dataSource="colors" filter="noFilter"/>
+              <mu-auto-complete inputClass="text" labelFocusClass="text" underlineFocusClass="bg" label="设置邮箱" :maxSearchResults="5" labelFloat :dataSource="colors" filter="noFilter"/>
               <br/>
-              <mu-auto-complete label="设置密码" :maxSearchResults="5" labelFloat :dataSource="colors" filter="noFilter"/>
+              <mu-auto-complete inputClass="text" labelFocusClass="text" underlineFocusClass="bg" label="设置密码" :maxSearchResults="5" labelFloat :dataSource="colors" filter="noFilter"/>
               <br/>
-              <mu-auto-complete label="确认密码" :maxSearchResults="5" labelFloat :dataSource="colors" filter="noFilter"/>
+              <mu-auto-complete inputClass="text" labelFocusClass="text" underlineFocusClass="bg" label="确认密码" :maxSearchResults="5" labelFloat :dataSource="colors" filter="noFilter"/>
               <br/>
-              <mu-raised-button label="注册" class="demo-raised-button shadow" backgroundColor="#2196F3"/>
+              <mu-raised-button  label="注册" class="demo-raised-button bg" />
             </mu-col>
             <mu-col width="100" tablet="50" desktop="50">
               <img src="../assets/assign.png" width="100%"/>

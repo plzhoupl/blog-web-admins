@@ -1,8 +1,8 @@
-<style>
+<style scoped>
   #data {
     margin-left: 20px;
     width: 100%;
-    background: #E8ECEF;
+    background: #F5F4F5;
     font-family: Hiragino Sans GB;
   }
 
@@ -14,15 +14,21 @@
     float: left;
     display: inline-block;
     background: white;
+    cursor: pointer;
+    transition: all 0.6s;
     box-shadow: 10px 10px 10px #cccccc;
   }
 
   .demo-paper:hover {
     box-shadow: 20px 20px 20px #aaaaaa;
+    transform: scale(1.1);
+    color: #ffffff;
+    background-image: linear-gradient(to right top, #0AE3A7 0%,#41C3E3  100%);
   }
 
   .progress {
-    margin-left: 50px;
+    width: 50%;
+    left: 25%;
   }
 
   .title {

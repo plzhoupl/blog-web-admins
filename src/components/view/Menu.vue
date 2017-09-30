@@ -1,6 +1,6 @@
 <style scoped>
   .menu {
-    background: #19E7FF;
+    background-image: linear-gradient(to bottom, #0AE3A7 0%, #41C3E3 100%);
     color: white;
     min-height: 200px;
   }
@@ -40,6 +40,11 @@
     border-left-color: #00ff53;
     border-width: 0 0 0 5px;
   }
+  .close{
+    width: 200px;
+    height: 50px;
+    border-radius: 50px;
+  }
 
 
 </style>
@@ -51,7 +56,7 @@
         <span class="name">陈圣宇</span><br/>
         <mu-raised-button label="切换账户" class="demo-raised-button login-out" secondary/>
       </div>
-      <mu-list style="height: 70%" @change="handleListChange" :value="activeList">
+      <mu-list style="height: 60%" @change="handleListChange" :value="activeList">
         <mu-list-item v-for="item in list" :class="activeList==item? 'select-item item':'item'" :value="item">
           <div>
             <svg class="icon item-icon" aria-hidden="true">
@@ -61,8 +66,8 @@
             <span class="item-title">{{ item.title }}</span>
           </div>
         </mu-list-item>
-
       </mu-list>
+      <mu-raised-button @click="close" label="CLOSE" class="demo-raised-button close" secondary/>
     </mu-drawer>
 
   </div>
@@ -84,24 +89,50 @@
     },
     data () {
       return {
-        list:[
-          {"title":"博客数据","icon":"#icon-menu-data"},
-          {"title":"博文管理","icon":"#icon-menu-blog"},
-          {"title":"好友管理","icon":"#icon-menu-friends"},
+        list: [
+          {'title': '博客数据', 'icon': '#icon-menu-data'},
+          {'title': '博文管理', 'icon': '#icon-menu-blog'},
+          {'title': '好友管理', 'icon': '#icon-menu-friends'},
         ],
-        activeList:'',
+        activeList: '',
       }
     },
     methods: {
       handleListChange (val) {
-        this.activeList = val;
-        this.$emit('change', val.title);
+        if (this.activeList !== val) {
+          this.activeList = val
+          this.$emit('change', val.title)
+          switch (val) {
+            case this.list[0]:
+              this.$router.push({name: 'data'})
+              break
+            case this.list[1]:
+              this.$router.push({name: 'blog'})
+              break
+            case this.list[2]:
+              this.$router.push({name: 'data'})
+              break
+          }
+        }
+
+      },
+      close(){
+        this.open = false;
+        this.$emit('close',false)
       }
     },
-    mounted(){
-      this.activeList=this.list[0];
-      this.$emit('change', this.activeList.title);
-
+    mounted () {
+      switch (this.$route.name) {
+        case 'data':
+          this.activeList = this.list[0];
+          break;
+        case 'blog':
+          this.activeList = this.list[1];
+          break;
+        case 'game':
+          this.activeList = this.list[2];
+          break;
+      }
     }
   }
 

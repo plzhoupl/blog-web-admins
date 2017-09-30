@@ -1,6 +1,6 @@
 <style scoped lang="less">
   #home{
-    background-color: #E8ECEF;
+    background-color: #F5F4F5;
     height: 100%;
     width: 100%;
 
@@ -31,7 +31,7 @@
 </style>
 <template>
   <div id="home">
-    <admin-menu :open="open" @change="handleMenuChange"></admin-menu>
+    <admin-menu :open="open" v-on:close="open=false" @change="handleMenuChange"></admin-menu>
     <mu-appbar :title="title" class="example-appbar" :class="{'nav-hide': !open}">
       <mu-icon-button @click="toggleNav" icon="menu" slot="left"/>
       <mu-icon-button slot="right" href="https://github.com/lovexiaobei">

@@ -1,6 +1,7 @@
 html,body{
   margin:0;
   height: 100%;
+  background: #E8ECEF;
 }
 .shadow {
   box-shadow: 0 5px 5px #888888;
@@ -10,4 +11,13 @@ html,body{
   vertical-align: -0.15em;
   fill: currentColor;
   overflow: hidden;
+}
+.bg{
+  background-image: linear-gradient(to right top, #0AE3A7 0%,#41C3E3  100%);
+  color: white;
+  font-size: 20px;
+}
+.text{
+  color: #0AE3A7;
+  font-size: 20px;
 }
