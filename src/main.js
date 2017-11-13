@@ -3,26 +3,22 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import axios from 'axios'
-
+import store from './store'
 import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'
 import 'muse-ui/dist/theme-light.css' // 使用 carbon 主题
-
+import Loading from './components/view/loading.vue'
 Vue.use(MuseUI)
+Vue.component('Loading', Loading)
 require('./main.css')
-
 Vue.config.productionTip = false
-Vue.prototype.$ajax = axios
-
-import User from './api/User';
-
-window.user = User;
+window.axios = require('axios')
 window.router = router;
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 

@@ -3,10 +3,11 @@
  */
 
 
-export default class Demo {
-  static noLogin () {
-    return this.loadUser() === null
+export default class User {
+  static isLogin () {
+    return this.loadUser() !== null
   }
+
   static saveUser (user) {
     let storage = window.localStorage
     storage.setItem('user', JSON.stringify(user))
@@ -21,12 +22,12 @@ export default class Demo {
   }
 
   static checkLogin () {
-    if (this.noLogin) {
-         this.toLogin()
+    if (!this.isLogin()) {
+      this.toLogin()
     }
   }
 
-  static relogin () {
+  static reLogin () {
     this.logout()
     this.toLogin()
   }

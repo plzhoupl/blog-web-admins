@@ -36,7 +36,7 @@
       <mu-icon-button @click="toggleNav" icon="menu" slot="left"/>
       <mu-icon-button slot="right" href="https://github.com/lovexiaobei">
         <svg class="icon item-icon" aria-hidden="true">
-          <use xlink:href="#icon-home"></use>
+          <use xlink:href="#icon-github"></use>
         </svg>
       </mu-icon-button>
     </mu-appbar><br/>

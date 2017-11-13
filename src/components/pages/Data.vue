@@ -28,7 +28,8 @@
 
   .progress {
     width: 50%;
-    left: 25%;
+    margin-left: 25%;
+    margin-right: 25%;
   }
 
   .title {

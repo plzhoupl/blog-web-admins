@@ -54,9 +54,9 @@
       <div style="height: 30%">
         <img class="mu-avatar" src="../../assets/avatar.jpg"/><br/>
         <span class="name">陈圣宇</span><br/>
-        <mu-raised-button label="切换账户" class="demo-raised-button login-out" secondary/>
+        <mu-raised-button  @click="toReLogin()" label="切换账户" class="demo-raised-button login-out" secondary/>
       </div>
-      <mu-list style="height: 60%" @change="handleListChange" :value="activeList">
+      <mu-list style="height: 60%;overflow: hidden" @change="handleListChange" :value="activeList">
         <mu-list-item v-for="item in list" :class="activeList==item? 'select-item item':'item'" :value="item">
           <div>
             <svg class="icon item-icon" aria-hidden="true">
@@ -74,6 +74,7 @@
 </template>
 <script>
   import MuIconButton from '../../../node_modules/muse-ui/src/iconButton/iconButton.vue'
+  import user from '../../js/User'
 
   export default {
     components: {MuIconButton},
@@ -119,6 +120,9 @@
       close(){
         this.open = false;
         this.$emit('close',false)
+      },
+      toReLogin(){
+    user.reLogin();
       }
     },
     mounted () {
