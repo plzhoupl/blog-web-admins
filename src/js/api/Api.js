@@ -4,8 +4,8 @@ import Sha1 from '../utils/Sha1.js'
 export default class Api {
 
   static domain () {
-    // return 'www.zhoupeili.cn:8080/';
-    return 'localhost:8080/admin'
+    return 'www.zhoupeili.cn:8080/admin';
+    // return 'localhost:8080/admin'
   }
 
   static protocol () {

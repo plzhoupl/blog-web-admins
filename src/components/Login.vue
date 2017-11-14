@@ -75,16 +75,16 @@
             <mu-col width="100" tablet="50" desktop="50" v-if="this.login">
               <span class="title"> 登录</span><br/>
               <mu-text-field inputClass="text" labelFocusClass="text" underlineFocusClass="bg" label="用户名或邮箱"
-                             :maxSearchResults="5" labelFloat :dataSource="colors"
+                             :maxSearchResults="5" labelFloat
                              v-model="name"
-                             filter="noFilter"></mu-text-field>
+              ></mu-text-field>
               <br/>
 
               <mu-text-field inputClass="text" labelFocusClass="text" underlineFocusClass="bg" label="密码"
-                             :maxSearchResults="5" labelFloat :dataSource="colors"
+                             labelFloat
                              v-model="pwd"
                              type="password"
-                             filter="noFilter"></mu-text-field>
+              ></mu-text-field>
               <br/>
               <mu-raised-button @click="loginAdmin()" label="登录" class="demo-raised-button button"></mu-raised-button>
               <br/>
@@ -113,11 +113,13 @@
               <mu-auto-complete class="edit" inputClass="text" labelFocusClass="text" underlineFocusClass="bg"
                                 label="设置密码"
                                 v-model="register.pwd"
+                                type="password"
                                 labelFloat></mu-auto-complete>
               <br/>
               <mu-auto-complete class="edit" inputClass="text" labelFocusClass="text" underlineFocusClass="bg"
                                 label="确认密码"
                                 v-model="register.rePwd"
+                                type="password"
                                 labelFloat></mu-auto-complete>
               <br/>
               <mu-raised-button @click="registerAdmin()" label="注册" class="button"></mu-raised-button>
